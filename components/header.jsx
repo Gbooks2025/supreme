@@ -530,9 +530,9 @@ const Header = () => {
         <div className="container mx-auto px-4 py-3">
           <div className="flex justify-between items-center">
             {/* Logo Section */}
-            <Link href="/" className="flex items-center space-x-3 group">
+            {/* <Link href="/" className="flex items-center space-x-3 group">
               <div className={`w-14 h-14 bg-gradient-to-br ${isDark ? 'from-emerald-600 to-cyan-600' : 'from-emerald-600 to-cyan-600'} rounded-lg flex items-center justify-center group-hover:shadow-lg transition-all`}>
-                {/* <span className="text-white font-bold text-2xl">HP</span> */}
+                
               </div>
               <div className="flex flex-col">
                 <span className={`text-xl md:text-2xl font-bold bg-gradient-to-r ${isDark ? 'from-emerald-400 to-cyan-400' : 'from-emerald-600 to-cyan-600'} bg-clip-text text-transparent`}>
@@ -542,17 +542,26 @@ const Header = () => {
                   Your Health Matters
                 </span>
               </div>
-            </Link>
+            </Link> */}
+
+            <div className="w-32 h-16 rounded-lg flex items-center justify-center group-hover:shadow-lg transition-all overflow-hidden">
+              <img
+                src="/logo1.png"
+                alt="Supreme HealthCare Logo"
+                className="w-full h-full object-contain"
+              />
+            </div>
+
 
             {/* Contact Info - Desktop Only */}
-            <div className="hidden lg:flex items-center gap-6">
+            <div className="hidden lg:flex justify-end gap-6 pr-2 grow">
               <div className={`flex items-center gap-2 text-sm ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
                 <div className={`${isDark ? 'bg-emerald-900/40' : 'bg-emerald-100'} p-2 rounded-full transition-colors`}>
                   <Phone className={`w-4 h-4 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`} />
                 </div>
                 <div>
                   <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>Emergency</p>
-                  <p className={`font-semibold ${isDark ? 'text-white' : 'text-gray-800'}`}>+91-9876543210</p>
+                  <p className={`font-semibold ${isDark ? 'text-white' : 'text-gray-800'}`}>+91-9434316317 / 8373091380</p>
                 </div>
               </div>
 
@@ -562,11 +571,11 @@ const Header = () => {
                 </div>
                 <div>
                   <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>Email us</p>
-                  <p className={`font-semibold ${isDark ? 'text-white' : 'text-gray-800'}`}>care@healthplus.com</p>
+                  <p className={`font-semibold ${isDark ? 'text-white' : 'text-gray-800'}`}>info.supremehealthcare.in</p>
                 </div>
               </div>
 
-              <div className={`flex items-center gap-2 text-sm ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+              {/* <div className={`flex items-center gap-2 text-sm ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
                 <div className={`${isDark ? 'bg-emerald-900/40' : 'bg-emerald-100'} p-2 rounded-full transition-colors`}>
                   <MapPin className={`w-4 h-4 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`} />
                 </div>
@@ -574,7 +583,7 @@ const Header = () => {
                   <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>Visit us</p>
                   <p className={`font-semibold ${isDark ? 'text-white' : 'text-gray-800'}`}>123 Healthcare Street</p>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             {/* Theme Toggle & Mobile Menu Button */}
@@ -617,8 +626,8 @@ const Header = () => {
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className={`lg:hidden p-2 rounded-lg transition-colors ${isDark
-                    ? 'text-gray-300 hover:bg-gray-800'
-                    : 'text-gray-700 hover:bg-gray-100'
+                  ? 'text-gray-300 hover:bg-gray-800'
+                  : 'text-gray-700 hover:bg-gray-100'
                   }`}
               >
                 {isMenuOpen ? (
