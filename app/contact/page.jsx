@@ -457,7 +457,7 @@
 
 //     updateTheme();
 //     window.addEventListener('storage', updateTheme);
-    
+
 //     const observer = new MutationObserver(updateTheme);
 //     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 
@@ -478,7 +478,7 @@
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
 //     setLoading(true);
-    
+
 //     setTimeout(() => {
 //       setLoading(false);
 //       setSubmitted(true);
@@ -806,7 +806,7 @@
 //                         ? 'bg-gradient-to-br from-emerald-500/10 to-transparent' 
 //                         : 'bg-gradient-to-br from-emerald-600/10 to-cyan-600/10'
 //                     }`}></div>
-                    
+
 //                     <div className="relative z-10 text-center">
 //                       <Icon className={`w-12 h-12 mx-auto mb-4 group-hover:scale-125 transition-transform ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`} />
 //                       <h3 className={`text-lg font-bold mb-2 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>{service.title}</h3>
@@ -926,11 +926,11 @@
 //           0% { opacity: 0; }
 //           100% { opacity: 1; }
 //         }
-        
+
 //         .animation-delay-2000 {
 //           animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) 2s infinite;
 //         }
-        
+
 //         .animation-delay-4000 {
 //           animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) 4s infinite;
 //         }
@@ -942,14 +942,921 @@
 
 
 
+// "use client";
+// import { Phone, Mail, MapPin, Clock, Ambulance, Heart, ArrowRight } from 'lucide-react';
+// import { useState, useEffect } from 'react';
+// import Layout from '../../components/layout'
+
+// export default function Contact() {
+//   const [isDark, setIsDark] = useState(true);
+//   const [mounted, setMounted] = useState(false);
+
+//   useEffect(() => {
+//     setMounted(true);
+//     const updateTheme = () => {
+//       const isDarkMode = document.documentElement.classList.contains('dark');
+//       setIsDark(isDarkMode);
+//     };
+
+//     updateTheme();
+//     window.addEventListener('storage', updateTheme);
+
+//     const observer = new MutationObserver(updateTheme);
+//     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+//     return () => {
+//       window.removeEventListener('storage', updateTheme);
+//       observer.disconnect();
+//     };
+//   }, []);
+
+//   if (!mounted) return null;
+
+//   return (
+//     <Layout>
+//     <div className={`overflow-hidden transition-colors duration-300 ${isDark ? 'bg-slate-950' : 'bg-white'}`}>
+//       {/* ============ HERO SECTION ============ */}
+//       <section className={`relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 transition-colors duration-300 ${isDark ? 'bg-gradient-to-b from-slate-950 to-slate-900' : 'bg-gradient-to-b from-white to-emerald-50/40'}`}>
+//         <div className="absolute inset-0 overflow-hidden pointer-events-none">
+//           <div className={`absolute top-0 right-0 w-64 sm:w-96 h-64 sm:h-96 rounded-full blur-3xl ${isDark ? 'bg-emerald-500/10' : 'bg-emerald-200/20'}`}></div>
+//           <div className={`absolute bottom-0 left-0 w-64 sm:w-96 h-64 sm:h-96 rounded-full blur-3xl ${isDark ? 'bg-cyan-500/10' : 'bg-cyan-200/20'}`}></div>
+//         </div>
+
+//         <div className="relative max-w-7xl mx-auto text-center">
+//           <div className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full backdrop-blur-sm border mb-4 sm:mb-6 transition-all duration-300 ${
+//             isDark 
+//               ? 'bg-emerald-500/15 border-emerald-500/30' 
+//               : 'bg-emerald-100/70 border-emerald-300/60'
+//           }`}>
+//             <Heart className={`w-3 h-3 sm:w-4 sm:h-4 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`} />
+//             <span className={`text-xs sm:text-sm font-semibold ${isDark ? 'text-emerald-300' : 'text-emerald-700'}`}>GET IN TOUCH</span>
+//           </div>
+
+//           <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-4 sm:mb-6 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+//             Contact Us
+//           </h1>
+//           <p className={`text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+//             We're here to help you with expert medical care and compassionate service. Reach out for appointments or any health-related questions.
+//           </p>
+//         </div>
+//       </section>
+
+//       {/* ============ CONTACT CARDS ============ */}
+//       <section className={`relative py-12 sm:py-24 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDark ? 'bg-slate-900/50' : 'bg-white'}`}>
+//         <div className="max-w-7xl mx-auto">
+//           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+//             {/* Phone */}
+//             <div className={`group relative rounded-2xl border p-6 sm:p-8 text-center transition-all duration-300 hover:-translate-y-2 ${
+//               isDark
+//                 ? 'bg-white/5 border-white/10 hover:border-emerald-500/50'
+//                 : 'bg-white border-emerald-200 shadow-sm hover:shadow-lg'
+//             }`}>
+//               <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-br from-emerald-600 to-cyan-600 group-hover:scale-110 transition-transform">
+//                 <Phone className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+//               </div>
+//               <h3 className={`text-lg sm:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+//                 Call Us
+//               </h3>
+//               <p className={`text-xs sm:text-sm mb-3 sm:mb-4 transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+//                 Available 24/7 for appointments and emergencies
+//               </p>
+//               <a href="tel:+03217267444" className={`text-base sm:text-lg font-bold block transition-colors duration-300 ${isDark ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-600 hover:text-emerald-700'}`}>
+//                 +(03217) 267 444
+//               </a>
+//               <a href="tel:+919434316317" className={`text-base sm:text-lg font-bold block transition-colors duration-300 ${isDark ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-600 hover:text-emerald-700'}`}>
+//                 +91-9434316317
+//               </a>
+//               <a href="tel:+918373091380" className={`text-base sm:text-lg font-bold block transition-colors duration-300 ${isDark ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-600 hover:text-emerald-700'}`}>
+//                 +91-8373091380
+//               </a>
+//               <a href="tel:+918373091374" className={`text-base sm:text-lg font-bold block transition-colors duration-300 ${isDark ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-600 hover:text-emerald-700'}`}>
+//                 +91-8373091374
+//               </a>
+//             </div>
+
+//             {/* Email */}
+//             <div className={`group relative rounded-2xl border p-6 sm:p-8 text-center transition-all duration-300 hover:-translate-y-2 ${
+//               isDark
+//                 ? 'bg-white/5 border-white/10 hover:border-emerald-500/50'
+//                 : 'bg-white border-emerald-200 shadow-sm hover:shadow-lg'
+//             }`}>
+//               <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-br from-emerald-600 to-cyan-600 group-hover:scale-110 transition-transform">
+//                 <Mail className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+//               </div>
+//               <h3 className={`text-lg sm:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+//                 Email Us
+//               </h3>
+//               <p className={`text-xs sm:text-sm mb-3 sm:mb-4 transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+//                 Send us your queries anytime
+//               </p>
+//               <a href="mailto:info@supremehealthcare.in" className={`text-sm sm:text-base lg:text-lg font-bold break-all transition-colors duration-300 ${isDark ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-600 hover:text-emerald-700'}`}>
+//                 info@supremehealthcare.in
+//               </a>
+//             </div>
+
+//             {/* Location */}
+//             <div className={`group relative rounded-2xl border p-6 sm:p-8 text-center transition-all duration-300 hover:-translate-y-2 sm:col-span-2 lg:col-span-1 ${
+//               isDark
+//                 ? 'bg-white/5 border-white/10 hover:border-emerald-500/50'
+//                 : 'bg-white border-emerald-200 shadow-sm hover:shadow-lg'
+//             }`}>
+//               <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-br from-emerald-600 to-cyan-600 group-hover:scale-110 transition-transform">
+//                 <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+//               </div>
+//               <h3 className={`text-lg sm:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+//                 Visit Us
+//               </h3>
+//               <p className={`text-xs sm:text-sm mb-3 sm:mb-4 transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+//                 Come visit our clinic
+//               </p>
+//               <p className={`text-xs sm:text-sm font-semibold transition-colors duration-300 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`}>
+//                 Basirhat Registry Office More, S.N. Majumder Road, near H.M.D Girls High School, Basirhat, North 24 Parganas 743411
+//               </p>
+//             </div>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* ============ HOURS & EMERGENCY ============ */}
+//       <section className={`relative py-12 sm:py-24 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDark ? 'bg-slate-950' : 'bg-gray-50'}`}>
+//         <div className="max-w-7xl mx-auto">
+//           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+//             {/* Opening Hours */}
+//             <div className={`rounded-2xl sm:rounded-3xl border p-6 sm:p-8 transition-all duration-300 ${
+//               isDark 
+//                 ? 'bg-white/5 backdrop-blur-xl border-white/15' 
+//                 : 'bg-white border-emerald-200 shadow-sm'
+//             }`}>
+//               <h3 className={`text-xl sm:text-2xl font-black mb-6 sm:mb-8 flex items-center gap-2 sm:gap-3 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+//                 <Clock className={`w-6 h-6 sm:w-8 sm:h-8 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`} />
+//                 Opening Hours
+//               </h3>
+
+//               <div className="space-y-3 sm:space-y-4">
+//                 {[
+//                   { day: 'Monday - Friday', hours: '8:00 AM - 8:00 PM' },
+//                   { day: 'Saturday', hours: '9:00 AM - 6:00 PM' },
+//                   { day: 'Sunday & Holidays', hours: 'Emergency Only' }
+//                 ].map((schedule, idx) => (
+//                   <div key={idx} className={`flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-0 py-3 border-b transition-colors duration-300 last:border-0 ${isDark ? 'border-white/10' : 'border-emerald-200/50'}`}>
+//                     <span className={`font-medium text-sm sm:text-base transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>{schedule.day}</span>
+//                     <span className={`font-bold text-sm sm:text-base transition-colors duration-300 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`}>{schedule.hours}</span>
+//                   </div>
+//                 ))}
+//               </div>
+
+//               <div className={`mt-6 sm:mt-8 p-3 sm:p-4 rounded-xl flex items-start sm:items-center gap-2 transition-all duration-300 ${isDark ? 'bg-emerald-500/20 border border-emerald-500/30' : 'bg-emerald-100/70 border border-emerald-200'}`}>
+//                 <Ambulance className={`w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 mt-0.5 sm:mt-0 ${isDark ? 'text-emerald-300' : 'text-emerald-700'}`} />
+//                 <p className={`text-xs sm:text-sm font-medium transition-colors duration-300 ${isDark ? 'text-emerald-300' : 'text-emerald-700'}`}>
+//                   24/7 Emergency Services Available
+//                 </p>
+//               </div>
+//             </div>
+
+//             {/* Emergency Contact */}
+//             <div className={`rounded-2xl sm:rounded-3xl border p-6 sm:p-8 transition-all duration-300 ${
+//               isDark 
+//                 ? 'bg-gradient-to-br from-red-500/20 to-pink-500/10 border-red-500/30' 
+//                 : 'bg-gradient-to-br from-red-50 to-pink-50 border-red-200'
+//             }`}>
+//               <h3 className={`text-xl sm:text-2xl font-black mb-6 sm:mb-8 flex items-center gap-2 sm:gap-3 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+//                 <Ambulance className={`w-6 h-6 sm:w-8 sm:h-8 ${isDark ? 'text-red-400' : 'text-red-600'}`} />
+//                 Emergency Contact
+//               </h3>
+
+//               <p className={`text-sm sm:text-base lg:text-lg mb-4 sm:mb-6 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+//                 For medical emergencies, call our 24/7 emergency hotline immediately
+//               </p>
+
+//               <a href="tel:+919434316317" className={`block text-2xl sm:text-3xl lg:text-4xl font-black mb-6 sm:mb-8 transition-colors duration-300 ${isDark ? 'text-red-400' : 'text-red-600'}`}>
+//                 +91-9434316317
+//               </a>
+
+//               <div className="space-y-2 sm:space-y-3">
+//                 <div className="flex items-center gap-2">
+//                   <div className={`w-2 h-2 rounded-full ${isDark ? 'bg-red-400' : 'bg-red-600'}`}></div>
+//                   <span className={`text-xs sm:text-sm transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>Ambulance Service</span>
+//                 </div>
+//                 <div className="flex items-center gap-2">
+//                   <div className={`w-2 h-2 rounded-full ${isDark ? 'bg-red-400' : 'bg-red-600'}`}></div>
+//                   <span className={`text-xs sm:text-sm transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>ICU & Critical Care</span>
+//                 </div>
+//                 <div className="flex items-center gap-2">
+//                   <div className={`w-2 h-2 rounded-full ${isDark ? 'bg-red-400' : 'bg-red-600'}`}></div>
+//                   <span className={`text-xs sm:text-sm transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>24/7 Emergency Ward</span>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* ============ MAP SECTION ============ */}
+//       <section className={`relative py-12 sm:py-24 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDark ? 'bg-slate-900/50' : 'bg-white'}`}>
+//         <div className="max-w-7xl mx-auto">
+//           <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black text-center mb-8 sm:mb-16 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+//             Find Us
+//           </h2>
+
+//           <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
+//             <iframe 
+//               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.7763251382376!2d88.86705937440442!3d22.662126729684758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ff567ddfd3698b%3A0xb13cbb73a2e6a5e!2sSupreme%20Health%20Care!5e0!3m2!1sen!2sin!4v1763985237009!5m2!1sen!2sin"
+//               width="100%" 
+//               height="300"
+//               style={{ border: 0 }}
+//               allowFullScreen="" 
+//               loading="lazy"
+//               className="w-full sm:h-96 md:h-[450px]"
+//             ></iframe>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* ============ CTA SECTION ============ */}
+//       <section className={`relative py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-r from-emerald-600 to-cyan-600`}>
+//         <div className="absolute inset-0">
+//           <div className="absolute -top-40 -right-40 w-64 sm:w-96 h-64 sm:h-96 bg-white/10 rounded-full blur-3xl"></div>
+//           <div className="absolute -bottom-40 -left-40 w-64 sm:w-96 h-64 sm:h-96 bg-white/10 rounded-full blur-3xl"></div>
+//         </div>
+
+//         <div className="relative max-w-4xl mx-auto text-center">
+//           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 sm:mb-8">Ready to Get Quality Healthcare?</h2>
+//           <p className="text-base sm:text-lg md:text-xl text-white/90 mb-8 sm:mb-12 px-4">
+//             Contact us today and experience expert medical care with compassion
+//           </p>
+
+//           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+//             <a
+//               href="tel:+919434316317"
+//               className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 bg-white text-emerald-600 font-bold rounded-full hover:shadow-2xl transition-all duration-300 hover:scale-105 group text-base sm:text-lg"
+//             >
+//               <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
+//               Call Now
+//               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+//             </a>
+//             <a
+//               href="mailto:info@supremehealthcare.in"
+//               className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white/10 transition-all duration-300 text-base sm:text-lg"
+//             >
+//               <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
+//               Email Us
+//             </a>
+//           </div>
+//         </div>
+//       </section>
+//     </div>
+//     </Layout>
+//   );
+// }
+
+
+// "use client";
+// import { Phone, Mail, MapPin, Clock, Ambulance, Heart, ArrowRight } from 'lucide-react';
+// import { useState, useEffect } from 'react';
+// import Layout from '../../components/layout'
+
+
+// export default function Contact() {
+//   const [isDark, setIsDark] = useState(true);
+//   const [mounted, setMounted] = useState(false);
+
+
+//   useEffect(() => {
+//     setMounted(true);
+//     const updateTheme = () => {
+//       const isDarkMode = document.documentElement.classList.contains('dark');
+//       setIsDark(isDarkMode);
+//     };
+
+
+//     updateTheme();
+//     window.addEventListener('storage', updateTheme);
+
+//     const observer = new MutationObserver(updateTheme);
+//     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+
+//     return () => {
+//       window.removeEventListener('storage', updateTheme);
+//       observer.disconnect();
+//     };
+//   }, []);
+
+
+//   if (!mounted) return null;
+
+
+//   return (
+//     <Layout>
+//     <div className={`overflow-hidden transition-colors duration-300 ${isDark ? 'bg-slate-950' : 'bg-white'}`}>
+//       {/* ============ HERO SECTION ============ */}
+//       <section className={`relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 transition-colors duration-300 ${isDark ? 'bg-gradient-to-b from-slate-950 to-slate-900' : 'bg-gradient-to-b from-white to-emerald-50/40'}`}>
+//         <div className="absolute inset-0 overflow-hidden pointer-events-none">
+//           <div className={`absolute top-0 right-0 w-64 sm:w-96 h-64 sm:h-96 rounded-full blur-3xl ${isDark ? 'bg-emerald-500/10' : 'bg-emerald-200/20'}`}></div>
+//           <div className={`absolute bottom-0 left-0 w-64 sm:w-96 h-64 sm:h-96 rounded-full blur-3xl ${isDark ? 'bg-cyan-500/10' : 'bg-cyan-200/20'}`}></div>
+//         </div>
+
+
+//         <div className="relative max-w-7xl mx-auto text-center">
+//           <div className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full backdrop-blur-sm border mb-4 sm:mb-6 transition-all duration-300 ${
+//             isDark 
+//               ? 'bg-emerald-500/15 border-emerald-500/30' 
+//               : 'bg-emerald-100/70 border-emerald-300/60'
+//           }`}>
+//             <Heart className={`w-3 h-3 sm:w-4 sm:h-4 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`} />
+//             <span className={`text-xs sm:text-sm font-semibold ${isDark ? 'text-emerald-300' : 'text-emerald-700'}`}>GET IN TOUCH</span>
+//           </div>
+
+
+//           <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-4 sm:mb-6 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+//             Contact Us
+//           </h1>
+//           <p className={`text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+//             We're here to help you with expert medical care and compassionate service. Reach out for appointments or any health-related questions.
+//           </p>
+//         </div>
+//       </section>
+
+
+//       {/* ============ CONTACT CARDS ============ */}
+//       <section className={`relative py-12 sm:py-24 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDark ? 'bg-slate-900/50' : 'bg-white'}`}>
+//         <div className="max-w-7xl mx-auto">
+//           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+//             {/* Phone */}
+//             <div className={`group relative rounded-2xl border p-6 sm:p-8 text-center transition-all duration-300 hover:-translate-y-2 ${
+//               isDark
+//                 ? 'bg-white/5 border-white/10 hover:border-emerald-500/50'
+//                 : 'bg-white border-emerald-200 shadow-sm hover:shadow-lg'
+//             }`}>
+//               <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-br from-emerald-600 to-cyan-600 group-hover:scale-110 transition-transform">
+//                 <Phone className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+//               </div>
+//               <h3 className={`text-lg sm:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+//                 Call Us
+//               </h3>
+//               <p className={`text-xs sm:text-sm mb-3 sm:mb-4 transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+//                 Available 24/7 for appointments and emergencies
+//               </p>
+
+//               <div className="space-y-2">
+//                 <div>
+//                   <p className={`text-xs font-semibold mb-1 transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+//                     Helpline Number:
+//                   </p>
+//                   <a href="tel:+03217267444" className={`text-base sm:text-lg font-bold block transition-colors duration-300 ${isDark ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-600 hover:text-emerald-700'}`}>
+//                     +(03217) 267 444
+//                   </a>
+//                 </div>
+
+//                 <div>
+//                   <p className={`text-xs font-semibold mb-1 transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+//                     Helpline Number:
+//                   </p>
+//                   <a href="tel:+919434316317" className={`text-base sm:text-lg font-bold block transition-colors duration-300 ${isDark ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-600 hover:text-emerald-700'}`}>
+//                     +91-9434316317
+//                   </a>
+//                 </div>
+
+//                 <div>
+//                   <p className={`text-xs font-semibold mb-1 transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+//                     Helpline Number:
+//                   </p>
+//                   <a href="tel:+918373091380" className={`text-base sm:text-lg font-bold block transition-colors duration-300 ${isDark ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-600 hover:text-emerald-700'}`}>
+//                     +91-8373091380
+//                   </a>
+//                 </div>
+
+//                 <div>
+//                   <p className={`text-xs font-semibold mb-1 transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+//                     Helpline Number:
+//                   </p>
+//                   <a href="tel:+918373091374" className={`text-base sm:text-lg font-bold block transition-colors duration-300 ${isDark ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-600 hover:text-emerald-700'}`}>
+//                     +91-8373091374
+//                   </a>
+//                 </div>
+//               </div>
+//             </div>
+
+
+//             {/* Email */}
+//             <div className={`group relative rounded-2xl border p-6 sm:p-8 text-center transition-all duration-300 hover:-translate-y-2 ${
+//               isDark
+//                 ? 'bg-white/5 border-white/10 hover:border-emerald-500/50'
+//                 : 'bg-white border-emerald-200 shadow-sm hover:shadow-lg'
+//             }`}>
+//               <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-br from-emerald-600 to-cyan-600 group-hover:scale-110 transition-transform">
+//                 <Mail className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+//               </div>
+//               <h3 className={`text-lg sm:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+//                 Email Us
+//               </h3>
+//               <p className={`text-xs sm:text-sm mb-3 sm:mb-4 transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+//                 Send us your queries anytime
+//               </p>
+//               <a href="mailto:info@supremehealthcare.in" className={`text-sm sm:text-base lg:text-lg font-bold break-all transition-colors duration-300 ${isDark ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-600 hover:text-emerald-700'}`}>
+//                 info@supremehealthcare.in
+//               </a>
+//             </div>
+
+
+//             {/* Location */}
+//             <div className={`group relative rounded-2xl border p-6 sm:p-8 text-center transition-all duration-300 hover:-translate-y-2 sm:col-span-2 lg:col-span-1 ${
+//               isDark
+//                 ? 'bg-white/5 border-white/10 hover:border-emerald-500/50'
+//                 : 'bg-white border-emerald-200 shadow-sm hover:shadow-lg'
+//             }`}>
+//               <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-br from-emerald-600 to-cyan-600 group-hover:scale-110 transition-transform">
+//                 <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+//               </div>
+//               <h3 className={`text-lg sm:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+//                 Visit Us
+//               </h3>
+//               <p className={`text-xs sm:text-sm mb-3 sm:mb-4 transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+//                 Come visit our clinic
+//               </p>
+//               <p className={`text-xs sm:text-sm font-semibold transition-colors duration-300 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`}>
+//                 Basirhat Registry Office More, S.N. Majumder Road, near H.M.D Girls High School, Basirhat, North 24 Parganas 743411
+//               </p>
+//             </div>
+//           </div>
+//         </div>
+//       </section>
+
+
+//       {/* ============ HOURS & EMERGENCY ============ */}
+//       <section className={`relative py-12 sm:py-24 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDark ? 'bg-slate-950' : 'bg-gray-50'}`}>
+//         <div className="max-w-7xl mx-auto">
+//           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+//             {/* Opening Hours */}
+//             <div className={`rounded-2xl sm:rounded-3xl border p-6 sm:p-8 transition-all duration-300 ${
+//               isDark 
+//                 ? 'bg-white/5 backdrop-blur-xl border-white/15' 
+//                 : 'bg-white border-emerald-200 shadow-sm'
+//             }`}>
+//               <h3 className={`text-xl sm:text-2xl font-black mb-6 sm:mb-8 flex items-center gap-2 sm:gap-3 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+//                 <Clock className={`w-6 h-6 sm:w-8 sm:h-8 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`} />
+//                 Opening Hours
+//               </h3>
+
+
+//               <div className="space-y-3 sm:space-y-4">
+//                 {[
+//                   { day: 'Monday - Friday', hours: '8:00 AM - 8:00 PM' },
+//                   { day: 'Saturday', hours: '9:00 AM - 6:00 PM' },
+//                   { day: 'Sunday & Holidays', hours: 'Emergency Only' }
+//                 ].map((schedule, idx) => (
+//                   <div key={idx} className={`flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-0 py-3 border-b transition-colors duration-300 last:border-0 ${isDark ? 'border-white/10' : 'border-emerald-200/50'}`}>
+//                     <span className={`font-medium text-sm sm:text-base transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>{schedule.day}</span>
+//                     <span className={`font-bold text-sm sm:text-base transition-colors duration-300 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`}>{schedule.hours}</span>
+//                   </div>
+//                 ))}
+//               </div>
+
+
+//               <div className={`mt-6 sm:mt-8 p-3 sm:p-4 rounded-xl flex items-start sm:items-center gap-2 transition-all duration-300 ${isDark ? 'bg-emerald-500/20 border border-emerald-500/30' : 'bg-emerald-100/70 border border-emerald-200'}`}>
+//                 <Ambulance className={`w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 mt-0.5 sm:mt-0 ${isDark ? 'text-emerald-300' : 'text-emerald-700'}`} />
+//                 <p className={`text-xs sm:text-sm font-medium transition-colors duration-300 ${isDark ? 'text-emerald-300' : 'text-emerald-700'}`}>
+//                   24/7 Emergency Services Available
+//                 </p>
+//               </div>
+//             </div>
+
+
+//             {/* Emergency Contact */}
+//             <div className={`rounded-2xl sm:rounded-3xl border p-6 sm:p-8 transition-all duration-300 ${
+//               isDark 
+//                 ? 'bg-gradient-to-br from-red-500/20 to-pink-500/10 border-red-500/30' 
+//                 : 'bg-gradient-to-br from-red-50 to-pink-50 border-red-200'
+//             }`}>
+//               <h3 className={`text-xl sm:text-2xl font-black mb-6 sm:mb-8 flex items-center gap-2 sm:gap-3 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+//                 <Ambulance className={`w-6 h-6 sm:w-8 sm:h-8 ${isDark ? 'text-red-400' : 'text-red-600'}`} />
+//                 Emergency Contact
+//               </h3>
+
+
+//               <p className={`text-sm sm:text-base lg:text-lg mb-4 sm:mb-6 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+//                 For medical emergencies, call our 24/7 emergency hotline immediately
+//               </p>
+
+//               <div className="mb-6 sm:mb-8">
+//                 <p className={`text-xs font-semibold mb-2 transition-colors duration-300 ${isDark ? 'text-red-300' : 'text-red-700'}`}>
+//                   Emergency Helpline Number:
+//                 </p>
+//                 <a href="tel:+919434316317" className={`block text-2xl sm:text-3xl lg:text-4xl font-black transition-colors duration-300 ${isDark ? 'text-red-400' : 'text-red-600'}`}>
+//                   +91-9434316317
+//                 </a>
+//               </div>
+
+
+//               <div className="space-y-2 sm:space-y-3">
+//                 <div className="flex items-center gap-2">
+//                   <div className={`w-2 h-2 rounded-full ${isDark ? 'bg-red-400' : 'bg-red-600'}`}></div>
+//                   <span className={`text-xs sm:text-sm transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>Ambulance Service</span>
+//                 </div>
+//                 <div className="flex items-center gap-2">
+//                   <div className={`w-2 h-2 rounded-full ${isDark ? 'bg-red-400' : 'bg-red-600'}`}></div>
+//                   <span className={`text-xs sm:text-sm transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>ICU & Critical Care</span>
+//                 </div>
+//                 <div className="flex items-center gap-2">
+//                   <div className={`w-2 h-2 rounded-full ${isDark ? 'bg-red-400' : 'bg-red-600'}`}></div>
+//                   <span className={`text-xs sm:text-sm transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>24/7 Emergency Ward</span>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </section>
+
+
+//       {/* ============ MAP SECTION ============ */}
+//       <section className={`relative py-12 sm:py-24 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDark ? 'bg-slate-900/50' : 'bg-white'}`}>
+//         <div className="max-w-7xl mx-auto">
+//           <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black text-center mb-8 sm:mb-16 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+//             Find Us
+//           </h2>
+
+//           <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
+//             <iframe 
+//               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.7763251382376!2d88.86705937440442!3d22.662126729684758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ff567ddfd3698b%3A0xb13cbb73a2e6a5e!2sSupreme%20Health%20Care!5e0!3m2!1sen!2sin!4v1763985237009!5m2!1sen!2sin"
+//               width="100%" 
+//               height="300"
+//               style={{ border: 0 }}
+//               allowFullScreen="" 
+//               loading="lazy"
+//               className="w-full sm:h-96 md:h-[450px]"
+//             ></iframe>
+//           </div>
+//         </div>
+//       </section>
+
+
+//       {/* ============ CTA SECTION ============ */}
+//       <section className={`relative py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-r from-emerald-600 to-cyan-600`}>
+//         <div className="absolute inset-0">
+//           <div className="absolute -top-40 -right-40 w-64 sm:w-96 h-64 sm:h-96 bg-white/10 rounded-full blur-3xl"></div>
+//           <div className="absolute -bottom-40 -left-40 w-64 sm:w-96 h-64 sm:h-96 bg-white/10 rounded-full blur-3xl"></div>
+//         </div>
+
+
+//         <div className="relative max-w-4xl mx-auto text-center">
+//           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 sm:mb-8">Ready to Get Quality Healthcare?</h2>
+//           <p className="text-base sm:text-lg md:text-xl text-white/90 mb-8 sm:mb-12 px-4">
+//             Contact us today and experience expert medical care with compassion
+//           </p>
+
+
+//           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+//             <a
+//               href="tel:+919434316317"
+//               className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 bg-white text-emerald-600 font-bold rounded-full hover:shadow-2xl transition-all duration-300 hover:scale-105 group text-base sm:text-lg"
+//             >
+//               <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
+//               Call Now
+//               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+//             </a>
+//             <a
+//               href="mailto:info@supremehealthcare.in"
+//               className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white/10 transition-all duration-300 text-base sm:text-lg"
+//             >
+//               <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
+//               Email Us
+//             </a>
+//           </div>
+//         </div>
+//       </section>
+//     </div>
+//     </Layout>
+//   );
+// }
+
+
+// "use client";
+// import { Phone, Mail, MapPin, Clock, Ambulance, Heart, ArrowRight } from 'lucide-react';
+// import { useState, useEffect } from 'react';
+// import Layout from '../../components/layout'
+
+
+// export default function Contact() {
+//   const [isDark, setIsDark] = useState(true);
+//   const [mounted, setMounted] = useState(false);
+
+
+//   useEffect(() => {
+//     setMounted(true);
+//     const updateTheme = () => {
+//       const isDarkMode = document.documentElement.classList.contains('dark');
+//       setIsDark(isDarkMode);
+//     };
+
+
+//     updateTheme();
+//     window.addEventListener('storage', updateTheme);
+
+//     const observer = new MutationObserver(updateTheme);
+//     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+
+//     return () => {
+//       window.removeEventListener('storage', updateTheme);
+//       observer.disconnect();
+//     };
+//   }, []);
+
+
+//   if (!mounted) return null;
+
+
+//   return (
+//     <Layout>
+//       <div className={`overflow-hidden transition-colors duration-300 ${isDark ? 'bg-slate-950' : 'bg-white'}`}>
+//         {/* ============ HERO SECTION ============ */}
+//         <section className={`relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 transition-colors duration-300 ${isDark ? 'bg-gradient-to-b from-slate-950 to-slate-900' : 'bg-gradient-to-b from-white to-emerald-50/40'}`}>
+//           <div className="absolute inset-0 overflow-hidden pointer-events-none">
+//             <div className={`absolute top-0 right-0 w-64 sm:w-96 h-64 sm:h-96 rounded-full blur-3xl ${isDark ? 'bg-emerald-500/10' : 'bg-emerald-200/20'}`}></div>
+//             <div className={`absolute bottom-0 left-0 w-64 sm:w-96 h-64 sm:h-96 rounded-full blur-3xl ${isDark ? 'bg-cyan-500/10' : 'bg-cyan-200/20'}`}></div>
+//           </div>
+
+
+//           <div className="relative max-w-7xl mx-auto text-center">
+//             <div className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full backdrop-blur-sm border mb-4 sm:mb-6 transition-all duration-300 ${isDark
+//                 ? 'bg-emerald-500/15 border-emerald-500/30'
+//                 : 'bg-emerald-100/70 border-emerald-300/60'
+//               }`}>
+//               <Heart className={`w-3 h-3 sm:w-4 sm:h-4 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`} />
+//               <span className={`text-xs sm:text-sm font-semibold ${isDark ? 'text-emerald-300' : 'text-emerald-700'}`}>GET IN TOUCH</span>
+//             </div>
+
+
+//             <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-4 sm:mb-6 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+//               Contact Us
+//             </h1>
+//             <p className={`text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+//               We're here to help you with expert medical care and compassionate service. Reach out for appointments or any health-related questions.
+//             </p>
+//           </div>
+//         </section>
+
+
+//         {/* ============ CONTACT CARDS ============ */}
+//         <section className={`relative py-12 sm:py-24 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDark ? 'bg-slate-900/50' : 'bg-white'}`}>
+//           <div className="max-w-7xl mx-auto">
+//             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+//               {/* Phone */}
+//               <div className={`group relative rounded-2xl border p-6 sm:p-8 text-center transition-all duration-300 hover:-translate-y-2 ${isDark
+//                   ? 'bg-white/5 border-white/10 hover:border-emerald-500/50'
+//                   : 'bg-white border-emerald-200 shadow-sm hover:shadow-lg'
+//                 }`}>
+//                 <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-br from-emerald-600 to-cyan-600 group-hover:scale-110 transition-transform">
+//                   <Phone className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+//                 </div>
+//                 <h3 className={`text-lg sm:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+//                   Call Us
+//                 </h3>
+//                 <p className={`text-xs sm:text-sm mb-3 sm:mb-4 transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+//                   Available 24/7 for appointments and emergencies
+//                 </p>
+
+//                 <div className="space-y-2">
+//                   <div className="flex items-center justify-center gap-2">
+//                     <span className={`text-xs font-semibold transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+//                       Helpline:
+//                     </span>
+//                     <a href="tel:+03217267444" className={`text-base sm:text-lg font-bold transition-colors duration-300 ${isDark ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-600 hover:text-emerald-700'}`}>
+//                       +(03217) 267 444
+//                     </a>
+//                   </div>
+
+//                   <div className="flex items-center justify-center gap-2">
+//                     <span className={`text-xs font-semibold transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+//                       Helpline:
+//                     </span>
+//                     <a href="tel:+919434316317" className={`text-base sm:text-lg font-bold transition-colors duration-300 ${isDark ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-600 hover:text-emerald-700'}`}>
+//                       +91-9434316317
+//                     </a>
+//                   </div>
+
+//                   <div className="flex items-center justify-center gap-2">
+//                     <span className={`text-xs font-semibold transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+//                       Reception:
+//                     </span>
+//                     <a href="tel:+918373091380" className={`text-base sm:text-lg font-bold transition-colors duration-300 ${isDark ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-600 hover:text-emerald-700'}`}>
+//                       +91-8373091380
+//                     </a>
+//                   </div>
+
+//                   <div className="flex items-center justify-center gap-2">
+//                     <span className={`text-xs font-semibold transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+//                       Polyclinic:
+//                     </span>
+//                     <a href="tel:+918373091374" className={`text-base sm:text-lg font-bold transition-colors duration-300 ${isDark ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-600 hover:text-emerald-700'}`}>
+//                       +91-8373091374
+//                     </a>
+//                   </div>
+//                 </div>
+//               </div>
+
+
+//               {/* Email */}
+//               <div className={`group relative rounded-2xl border p-6 sm:p-8 text-center transition-all duration-300 hover:-translate-y-2 ${isDark
+//                   ? 'bg-white/5 border-white/10 hover:border-emerald-500/50'
+//                   : 'bg-white border-emerald-200 shadow-sm hover:shadow-lg'
+//                 }`}>
+//                 <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-br from-emerald-600 to-cyan-600 group-hover:scale-110 transition-transform">
+//                   <Mail className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+//                 </div>
+//                 <h3 className={`text-lg sm:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+//                   Email Us
+//                 </h3>
+//                 <p className={`text-xs sm:text-sm mb-3 sm:mb-4 transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+//                   Send us your queries anytime
+//                 </p>
+//                 <a href="mailto:info@supremehealthcare.in" className={`text-sm sm:text-base lg:text-lg font-bold break-all transition-colors duration-300 ${isDark ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-600 hover:text-emerald-700'}`}>
+//                   info@supremehealthcare.in
+//                 </a>
+//               </div>
+
+
+//               {/* Location */}
+//               <div className={`group relative rounded-2xl border p-6 sm:p-8 text-center transition-all duration-300 hover:-translate-y-2 sm:col-span-2 lg:col-span-1 ${isDark
+//                   ? 'bg-white/5 border-white/10 hover:border-emerald-500/50'
+//                   : 'bg-white border-emerald-200 shadow-sm hover:shadow-lg'
+//                 }`}>
+//                 <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-br from-emerald-600 to-cyan-600 group-hover:scale-110 transition-transform">
+//                   <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+//                 </div>
+//                 <h3 className={`text-lg sm:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+//                   Visit Us
+//                 </h3>
+//                 <p className={`text-xs sm:text-sm mb-3 sm:mb-4 transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+//                   Come visit our clinic
+//                 </p>
+//                 <p className={`text-xs sm:text-sm font-semibold transition-colors duration-300 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`}>
+//                   Basirhat Registry Office More, S.N. Majumder Road, near H.M.D Girls High School, Basirhat, North 24 Parganas 743411
+//                 </p>
+//               </div>
+//             </div>
+//           </div>
+//         </section>
+
+
+//         {/* ============ HOURS & EMERGENCY ============ */}
+//         <section className={`relative py-12 sm:py-24 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDark ? 'bg-slate-950' : 'bg-gray-50'}`}>
+//           <div className="max-w-7xl mx-auto">
+//             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+//               {/* Opening Hours */}
+//               <div className={`rounded-2xl sm:rounded-3xl border p-6 sm:p-8 transition-all duration-300 ${isDark
+//                   ? 'bg-white/5 backdrop-blur-xl border-white/15'
+//                   : 'bg-white border-emerald-200 shadow-sm'
+//                 }`}>
+//                 <h3 className={`text-xl sm:text-2xl font-black mb-6 sm:mb-8 flex items-center gap-2 sm:gap-3 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+//                   <Clock className={`w-6 h-6 sm:w-8 sm:h-8 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`} />
+//                   Opening Hours
+//                 </h3>
+
+
+//                 <div className="space-y-3 sm:space-y-4">
+//                   {[
+//                     { day: 'Monday - Friday', hours: '8:00 AM - 8:00 PM' },
+//                     { day: 'Saturday', hours: '9:00 AM - 6:00 PM' },
+//                     { day: 'Sunday & Holidays', hours: 'Emergency Only' }
+//                   ].map((schedule, idx) => (
+//                     <div key={idx} className={`flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-0 py-3 border-b transition-colors duration-300 last:border-0 ${isDark ? 'border-white/10' : 'border-emerald-200/50'}`}>
+//                       <span className={`font-medium text-sm sm:text-base transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>{schedule.day}</span>
+//                       <span className={`font-bold text-sm sm:text-base transition-colors duration-300 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`}>{schedule.hours}</span>
+//                     </div>
+//                   ))}
+//                 </div>
+
+
+//                 <div className={`mt-6 sm:mt-8 p-3 sm:p-4 rounded-xl flex items-start sm:items-center gap-2 transition-all duration-300 ${isDark ? 'bg-emerald-500/20 border border-emerald-500/30' : 'bg-emerald-100/70 border border-emerald-200'}`}>
+//                   <Ambulance className={`w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 mt-0.5 sm:mt-0 ${isDark ? 'text-emerald-300' : 'text-emerald-700'}`} />
+//                   <p className={`text-xs sm:text-sm font-medium transition-colors duration-300 ${isDark ? 'text-emerald-300' : 'text-emerald-700'}`}>
+//                     24/7 Emergency Services Available
+//                   </p>
+//                 </div>
+//               </div>
+
+
+//               {/* Emergency Contact */}
+//               <div className={`rounded-2xl sm:rounded-3xl border p-6 sm:p-8 transition-all duration-300 ${isDark
+//                   ? 'bg-gradient-to-br from-red-500/20 to-pink-500/10 border-red-500/30'
+//                   : 'bg-gradient-to-br from-red-50 to-pink-50 border-red-200'
+//                 }`}>
+//                 <h3 className={`text-xl sm:text-2xl font-black mb-6 sm:mb-8 flex items-center gap-2 sm:gap-3 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+//                   <Ambulance className={`w-6 h-6 sm:w-8 sm:h-8 ${isDark ? 'text-red-400' : 'text-red-600'}`} />
+//                   Emergency Contact
+//                 </h3>
+
+
+//                 <p className={`text-sm sm:text-base lg:text-lg mb-4 sm:mb-6 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+//                   For medical emergencies, call our 24/7 emergency hotline immediately
+//                 </p>
+
+//                 <div className="flex items-center justify-center gap-2 mb-6 sm:mb-8">
+//                   <span className={`text-sm font-semibold transition-colors duration-300 ${isDark ? 'text-red-300' : 'text-red-700'}`}>
+//                     Emergency Helpline:
+//                   </span>
+//                   <a href="tel:+919434316317" className={`text-2xl sm:text-3xl lg:text-4xl font-black transition-colors duration-300 ${isDark ? 'text-red-400' : 'text-red-600'}`}>
+//                     +91-9434316317
+//                   </a>
+//                 </div>
+
+
+//                 <div className="space-y-2 sm:space-y-3">
+//                   <div className="flex items-center gap-2">
+//                     <div className={`w-2 h-2 rounded-full ${isDark ? 'bg-red-400' : 'bg-red-600'}`}></div>
+//                     <span className={`text-xs sm:text-sm transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>Ambulance Service</span>
+//                   </div>
+//                   <div className="flex items-center gap-2">
+//                     <div className={`w-2 h-2 rounded-full ${isDark ? 'bg-red-400' : 'bg-red-600'}`}></div>
+//                     <span className={`text-xs sm:text-sm transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>ICU & Critical Care</span>
+//                   </div>
+//                   <div className="flex items-center gap-2">
+//                     <div className={`w-2 h-2 rounded-full ${isDark ? 'bg-red-400' : 'bg-red-600'}`}></div>
+//                     <span className={`text-xs sm:text-sm transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>24/7 Emergency Ward</span>
+//                   </div>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </section>
+
+
+//         {/* ============ MAP SECTION ============ */}
+//         <section className={`relative py-12 sm:py-24 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDark ? 'bg-slate-900/50' : 'bg-white'}`}>
+//           <div className="max-w-7xl mx-auto">
+//             <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black text-center mb-8 sm:mb-16 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+//               Find Us
+//             </h2>
+
+//             <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
+//               <iframe
+//                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.7763251382376!2d88.86705937440442!3d22.662126729684758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ff567ddfd3698b%3A0xb13cbb73a2e6a5e!2sSupreme%20Health%20Care!5e0!3m2!1sen!2sin!4v1763985237009!5m2!1sen!2sin"
+//                 width="100%"
+//                 height="300"
+//                 style={{ border: 0 }}
+//                 allowFullScreen=""
+//                 loading="lazy"
+//                 className="w-full sm:h-96 md:h-[450px]"
+//               ></iframe>
+//             </div>
+//           </div>
+//         </section>
+
+
+//         {/* ============ CTA SECTION ============ */}
+//         <section className={`relative py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-r from-emerald-600 to-cyan-600`}>
+//           <div className="absolute inset-0">
+//             <div className="absolute -top-40 -right-40 w-64 sm:w-96 h-64 sm:h-96 bg-white/10 rounded-full blur-3xl"></div>
+//             <div className="absolute -bottom-40 -left-40 w-64 sm:w-96 h-64 sm:h-96 bg-white/10 rounded-full blur-3xl"></div>
+//           </div>
+
+
+//           <div className="relative max-w-4xl mx-auto text-center">
+//             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 sm:mb-8">Ready to Get Quality Healthcare?</h2>
+//             <p className="text-base sm:text-lg md:text-xl text-white/90 mb-8 sm:mb-12 px-4">
+//               Contact us today and experience expert medical care with compassion
+//             </p>
+
+
+//             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+//               <a
+//                 href="tel:+919434316317"
+//                 className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 bg-white text-emerald-600 font-bold rounded-full hover:shadow-2xl transition-all duration-300 hover:scale-105 group text-base sm:text-lg"
+//               >
+//                 <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
+//                 Call Now
+//                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+//               </a>
+//               <a
+//                 href="mailto:info@supremehealthcare.in"
+//                 className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white/10 transition-all duration-300 text-base sm:text-lg"
+//               >
+//                 <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
+//                 Email Us
+//               </a>
+//             </div>
+//           </div>
+//         </section>
+//       </div>
+//     </Layout>
+//   );
+// }
+
+
+
 "use client";
-import { Phone, Mail, MapPin, Clock, Ambulance, Heart, ArrowRight } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Heart, ArrowRight, Clock3 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Layout from '../../components/layout'
+
+
 
 export default function Contact() {
   const [isDark, setIsDark] = useState(true);
   const [mounted, setMounted] = useState(false);
+
+
 
   useEffect(() => {
     setMounted(true);
@@ -958,11 +1865,16 @@ export default function Contact() {
       setIsDark(isDarkMode);
     };
 
+
+
     updateTheme();
     window.addEventListener('storage', updateTheme);
-    
+
+
     const observer = new MutationObserver(updateTheme);
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+
 
     return () => {
       window.removeEventListener('storage', updateTheme);
@@ -970,235 +1882,290 @@ export default function Contact() {
     };
   }, []);
 
+
+
   if (!mounted) return null;
+
+
 
   return (
     <Layout>
-    <div className={`overflow-hidden transition-colors duration-300 ${isDark ? 'bg-slate-950' : 'bg-white'}`}>
-      {/* ============ HERO SECTION ============ */}
-      <section className={`relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 transition-colors duration-300 ${isDark ? 'bg-gradient-to-b from-slate-950 to-slate-900' : 'bg-gradient-to-b from-white to-emerald-50/40'}`}>
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className={`absolute top-0 right-0 w-64 sm:w-96 h-64 sm:h-96 rounded-full blur-3xl ${isDark ? 'bg-emerald-500/10' : 'bg-emerald-200/20'}`}></div>
-          <div className={`absolute bottom-0 left-0 w-64 sm:w-96 h-64 sm:h-96 rounded-full blur-3xl ${isDark ? 'bg-cyan-500/10' : 'bg-cyan-200/20'}`}></div>
-        </div>
-
-        <div className="relative max-w-7xl mx-auto text-center">
-          <div className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full backdrop-blur-sm border mb-4 sm:mb-6 transition-all duration-300 ${
-            isDark 
-              ? 'bg-emerald-500/15 border-emerald-500/30' 
-              : 'bg-emerald-100/70 border-emerald-300/60'
-          }`}>
-            <Heart className={`w-3 h-3 sm:w-4 sm:h-4 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`} />
-            <span className={`text-xs sm:text-sm font-semibold ${isDark ? 'text-emerald-300' : 'text-emerald-700'}`}>GET IN TOUCH</span>
+      <div className={`overflow-hidden transition-colors duration-300 ${isDark ? 'bg-slate-950' : 'bg-white'}`}>
+        {/* ============ HERO SECTION ============ */}
+        <section className={`relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 transition-colors duration-300 ${isDark ? 'bg-gradient-to-b from-slate-950 to-slate-900' : 'bg-gradient-to-b from-white to-emerald-50/40'}`}>
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className={`absolute top-0 right-0 w-64 sm:w-96 h-64 sm:h-96 rounded-full blur-3xl ${isDark ? 'bg-emerald-500/10' : 'bg-emerald-200/20'}`}></div>
+            <div className={`absolute bottom-0 left-0 w-64 sm:w-96 h-64 sm:h-96 rounded-full blur-3xl ${isDark ? 'bg-cyan-500/10' : 'bg-cyan-200/20'}`}></div>
           </div>
 
-          <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-4 sm:mb-6 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-            Contact Us
-          </h1>
-          <p className={`text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-            We're here to help you with expert medical care and compassionate service. Reach out for appointments or any health-related questions.
-          </p>
-        </div>
-      </section>
 
-      {/* ============ CONTACT CARDS ============ */}
-      <section className={`relative py-12 sm:py-24 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDark ? 'bg-slate-900/50' : 'bg-white'}`}>
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-            {/* Phone */}
-            <div className={`group relative rounded-2xl border p-6 sm:p-8 text-center transition-all duration-300 hover:-translate-y-2 ${
-              isDark
-                ? 'bg-white/5 border-white/10 hover:border-emerald-500/50'
-                : 'bg-white border-emerald-200 shadow-sm hover:shadow-lg'
-            }`}>
-              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-br from-emerald-600 to-cyan-600 group-hover:scale-110 transition-transform">
-                <Phone className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-              </div>
-              <h3 className={`text-lg sm:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                Call Us
-              </h3>
-              <p className={`text-xs sm:text-sm mb-3 sm:mb-4 transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                Available 24/7 for appointments and emergencies
-              </p>
-              <a href="tel:+919434316317" className={`text-base sm:text-lg font-bold block mb-2 transition-colors duration-300 ${isDark ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-600 hover:text-emerald-700'}`}>
-                +91-9434316317
-              </a>
-              <a href="tel:+918373091380" className={`text-base sm:text-lg font-bold block transition-colors duration-300 ${isDark ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-600 hover:text-emerald-700'}`}>
-                +91-8373091380
-              </a>
+
+          <div className="relative max-w-7xl mx-auto text-center">
+            <div className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full backdrop-blur-sm border mb-4 sm:mb-6 transition-all duration-300 ${isDark
+                ? 'bg-emerald-500/15 border-emerald-500/30'
+                : 'bg-emerald-100/70 border-emerald-300/60'
+              }`}>
+              <Heart className={`w-3 h-3 sm:w-4 sm:h-4 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`} />
+              <span className={`text-xs sm:text-sm font-semibold ${isDark ? 'text-emerald-300' : 'text-emerald-700'}`}>GET IN TOUCH</span>
             </div>
 
-            {/* Email */}
-            <div className={`group relative rounded-2xl border p-6 sm:p-8 text-center transition-all duration-300 hover:-translate-y-2 ${
-              isDark
-                ? 'bg-white/5 border-white/10 hover:border-emerald-500/50'
-                : 'bg-white border-emerald-200 shadow-sm hover:shadow-lg'
-            }`}>
-              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-br from-emerald-600 to-cyan-600 group-hover:scale-110 transition-transform">
-                <Mail className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-              </div>
-              <h3 className={`text-lg sm:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                Email Us
-              </h3>
-              <p className={`text-xs sm:text-sm mb-3 sm:mb-4 transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                Send us your queries anytime
-              </p>
-              <a href="mailto:info@supremehealthcare.in" className={`text-sm sm:text-base lg:text-lg font-bold break-all transition-colors duration-300 ${isDark ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-600 hover:text-emerald-700'}`}>
-                info@supremehealthcare.in
-              </a>
-            </div>
 
-            {/* Location */}
-            <div className={`group relative rounded-2xl border p-6 sm:p-8 text-center transition-all duration-300 hover:-translate-y-2 sm:col-span-2 lg:col-span-1 ${
-              isDark
-                ? 'bg-white/5 border-white/10 hover:border-emerald-500/50'
-                : 'bg-white border-emerald-200 shadow-sm hover:shadow-lg'
-            }`}>
-              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-br from-emerald-600 to-cyan-600 group-hover:scale-110 transition-transform">
-                <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-              </div>
-              <h3 className={`text-lg sm:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                Visit Us
-              </h3>
-              <p className={`text-xs sm:text-sm mb-3 sm:mb-4 transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                Come visit our clinic
-              </p>
-              <p className={`text-xs sm:text-sm font-semibold transition-colors duration-300 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`}>
-                Basirhat Registry Office More, S.N. Majumder Road, near H.M.D Girls High School, Basirhat, North 24 Parganas 743411
-              </p>
-            </div>
+
+            <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-4 sm:mb-6 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+              Contact Us
+            </h1>
+            <p className={`text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+              We're here to help you with expert medical care and compassionate service. Reach out for appointments or any health-related questions.
+            </p>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ============ HOURS & EMERGENCY ============ */}
-      <section className={`relative py-12 sm:py-24 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDark ? 'bg-slate-950' : 'bg-gray-50'}`}>
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
-            {/* Opening Hours */}
-            <div className={`rounded-2xl sm:rounded-3xl border p-6 sm:p-8 transition-all duration-300 ${
-              isDark 
-                ? 'bg-white/5 backdrop-blur-xl border-white/15' 
-                : 'bg-white border-emerald-200 shadow-sm'
-            }`}>
-              <h3 className={`text-xl sm:text-2xl font-black mb-6 sm:mb-8 flex items-center gap-2 sm:gap-3 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                <Clock className={`w-6 h-6 sm:w-8 sm:h-8 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`} />
-                Opening Hours
-              </h3>
 
-              <div className="space-y-3 sm:space-y-4">
-                {[
-                  { day: 'Monday - Friday', hours: '8:00 AM - 8:00 PM' },
-                  { day: 'Saturday', hours: '9:00 AM - 6:00 PM' },
-                  { day: 'Sunday & Holidays', hours: 'Emergency Only' }
-                ].map((schedule, idx) => (
-                  <div key={idx} className={`flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-0 py-3 border-b transition-colors duration-300 last:border-0 ${isDark ? 'border-white/10' : 'border-emerald-200/50'}`}>
-                    <span className={`font-medium text-sm sm:text-base transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>{schedule.day}</span>
-                    <span className={`font-bold text-sm sm:text-base transition-colors duration-300 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`}>{schedule.hours}</span>
+
+        {/* ============ CONTACT CARDS ============ */}
+        <section className={`relative py-12 sm:py-24 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDark ? 'bg-slate-900/50' : 'bg-white'}`}>
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+              {/* Phone */}
+              <div className={`group relative rounded-2xl border p-6 sm:p-8 text-center transition-all duration-300 hover:-translate-y-2 ${isDark
+                  ? 'bg-white/5 border-white/10 hover:border-emerald-500/50'
+                  : 'bg-white border-emerald-200 shadow-sm hover:shadow-lg'
+                }`}>
+                <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-br from-emerald-600 to-cyan-600 group-hover:scale-110 transition-transform">
+                  <Phone className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                </div>
+                <h3 className={`text-lg sm:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                  Call Us
+                </h3>
+                <p className={`text-xs sm:text-sm mb-3 sm:mb-4 transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                  Available 24/7 for appointments and consultations
+                </p>
+
+
+                <div className="space-y-2">
+                  <div className="flex items-center justify-center gap-2">
+                    <span className={`text-xs font-semibold transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                      Helpline:
+                    </span>
+                    <a href="tel:+03217267444" className={`text-base sm:text-lg font-bold transition-colors duration-300 ${isDark ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-600 hover:text-emerald-700'}`}>
+                      +(03217) 267 444
+                    </a>
                   </div>
-                ))}
+
+
+                  <div className="flex items-center justify-center gap-2">
+                    <span className={`text-xs font-semibold transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                      Helpline:
+                    </span>
+                    <a href="tel:+919434316317" className={`text-base sm:text-lg font-bold transition-colors duration-300 ${isDark ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-600 hover:text-emerald-700'}`}>
+                      +91-9434316317
+                    </a>
+                  </div>
+
+
+                  <div className="flex items-center justify-center gap-2">
+                    <span className={`text-xs font-semibold transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                      Reception:
+                    </span>
+                    <a href="tel:+918373091380" className={`text-base sm:text-lg font-bold transition-colors duration-300 ${isDark ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-600 hover:text-emerald-700'}`}>
+                      +91-8373091380
+                    </a>
+                  </div>
+
+
+                  <div className="flex items-center justify-center gap-2">
+                    <span className={`text-xs font-semibold transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                      Polyclinic:
+                    </span>
+                    <a href="tel:+918373091374" className={`text-base sm:text-lg font-bold transition-colors duration-300 ${isDark ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-600 hover:text-emerald-700'}`}>
+                      +91-8373091374
+                    </a>
+                  </div>
+                </div>
               </div>
 
-              <div className={`mt-6 sm:mt-8 p-3 sm:p-4 rounded-xl flex items-start sm:items-center gap-2 transition-all duration-300 ${isDark ? 'bg-emerald-500/20 border border-emerald-500/30' : 'bg-emerald-100/70 border border-emerald-200'}`}>
-                <Ambulance className={`w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 mt-0.5 sm:mt-0 ${isDark ? 'text-emerald-300' : 'text-emerald-700'}`} />
-                <p className={`text-xs sm:text-sm font-medium transition-colors duration-300 ${isDark ? 'text-emerald-300' : 'text-emerald-700'}`}>
-                  24/7 Emergency Services Available
+
+
+              {/* Email */}
+              <div className={`group relative rounded-2xl border p-6 sm:p-8 text-center transition-all duration-300 hover:-translate-y-2 ${isDark
+                  ? 'bg-white/5 border-white/10 hover:border-emerald-500/50'
+                  : 'bg-white border-emerald-200 shadow-sm hover:shadow-lg'
+                }`}>
+                <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-br from-emerald-600 to-cyan-600 group-hover:scale-110 transition-transform">
+                  <Mail className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                </div>
+                <h3 className={`text-lg sm:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                  Email Us
+                </h3>
+                <p className={`text-xs sm:text-sm mb-3 sm:mb-4 transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                  Send us your queries anytime
+                </p>
+                <a href="mailto:info@supremehealthcare.in" className={`text-sm sm:text-base lg:text-lg font-bold break-all transition-colors duration-300 ${isDark ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-600 hover:text-emerald-700'}`}>
+                  info@supremehealthcare.in
+                </a>
+              </div>
+
+
+
+              {/* Location */}
+              <div className={`group relative rounded-2xl border p-6 sm:p-8 text-center transition-all duration-300 hover:-translate-y-2 sm:col-span-2 lg:col-span-1 ${isDark
+                  ? 'bg-white/5 border-white/10 hover:border-emerald-500/50'
+                  : 'bg-white border-emerald-200 shadow-sm hover:shadow-lg'
+                }`}>
+                <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-br from-emerald-600 to-cyan-600 group-hover:scale-110 transition-transform">
+                  <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                </div>
+                <h3 className={`text-lg sm:text-xl font-bold mb-2 sm:mb-3 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                  Visit Us
+                </h3>
+                <p className={`text-xs sm:text-sm mb-3 sm:mb-4 transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                  Come visit our clinic
+                </p>
+                <p className={`text-xs sm:text-sm font-semibold transition-colors duration-300 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`}>
+                  Basirhat Registry Office More, S.N. Majumder Road, near H.M.D Girls High School, Basirhat, North 24 Parganas 743411
                 </p>
               </div>
             </div>
+          </div>
+        </section>
 
-            {/* Emergency Contact */}
-            <div className={`rounded-2xl sm:rounded-3xl border p-6 sm:p-8 transition-all duration-300 ${
-              isDark 
-                ? 'bg-gradient-to-br from-red-500/20 to-pink-500/10 border-red-500/30' 
-                : 'bg-gradient-to-br from-red-50 to-pink-50 border-red-200'
-            }`}>
-              <h3 className={`text-xl sm:text-2xl font-black mb-6 sm:mb-8 flex items-center gap-2 sm:gap-3 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                <Ambulance className={`w-6 h-6 sm:w-8 sm:h-8 ${isDark ? 'text-red-400' : 'text-red-600'}`} />
-                Emergency Contact
-              </h3>
 
-              <p className={`text-sm sm:text-base lg:text-lg mb-4 sm:mb-6 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                For medical emergencies, call our 24/7 emergency hotline immediately
+
+        {/* ============ 24/7/365 ALWAYS OPEN SECTION ============ */}
+        <section className={`relative py-12 sm:py-24 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDark ? 'bg-slate-950' : 'bg-gray-50'}`}>
+          <div className="max-w-5xl mx-auto">
+            <div className={`rounded-3xl border p-8 sm:p-12 text-center transition-all duration-300 ${isDark
+                ? 'bg-gradient-to-br from-emerald-500/20 to-cyan-500/10 border-emerald-500/30'
+                : 'bg-gradient-to-br from-emerald-50 to-cyan-50 border-emerald-200'
+              }`}>
+              
+              {/* Icon */}
+              <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-6 sm:mb-8 rounded-3xl flex items-center justify-center bg-gradient-to-br from-emerald-600 to-cyan-600 shadow-2xl">
+                <Clock className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
+              </div>
+
+              {/* Heading */}
+              <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black mb-4 sm:mb-6 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                24/7/365 Days Open
+              </h2>
+
+              {/* Description */}
+              <p className={`text-lg sm:text-xl md:text-2xl mb-8 sm:mb-10 transition-colors duration-300 ${isDark ? 'text-emerald-200' : 'text-emerald-700'}`}>
+                We're Always Here For You
               </p>
 
-              <a href="tel:+919434316317" className={`block text-2xl sm:text-3xl lg:text-4xl font-black mb-6 sm:mb-8 transition-colors duration-300 ${isDark ? 'text-red-400' : 'text-red-600'}`}>
-                +91-9434316317
-              </a>
+              <p className={`text-base sm:text-lg max-w-3xl mx-auto mb-8 sm:mb-10 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                Our clinic is open round-the-clock, every single day of the year. Whether it's a weekday, weekend, or holiday - we're here to provide you with quality healthcare services whenever you need us.
+              </p>
 
-              <div className="space-y-2 sm:space-y-3">
-                <div className="flex items-center gap-2">
-                  <div className={`w-2 h-2 rounded-full ${isDark ? 'bg-red-400' : 'bg-red-600'}`}></div>
-                  <span className={`text-xs sm:text-sm transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>Ambulance Service</span>
+              {/* Features */}
+              <div className="grid sm:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto">
+                <div className={`p-4 sm:p-6 rounded-2xl transition-all duration-300 ${isDark ? 'bg-white/10' : 'bg-white/80'}`}>
+                  <div className={`text-3xl sm:text-4xl font-black mb-2 bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent`}>
+                    24
+                  </div>
+                  <p className={`text-sm sm:text-base font-semibold transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                    Hours a Day
+                  </p>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className={`w-2 h-2 rounded-full ${isDark ? 'bg-red-400' : 'bg-red-600'}`}></div>
-                  <span className={`text-xs sm:text-sm transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>ICU & Critical Care</span>
+
+                <div className={`p-4 sm:p-6 rounded-2xl transition-all duration-300 ${isDark ? 'bg-white/10' : 'bg-white/80'}`}>
+                  <div className={`text-3xl sm:text-4xl font-black mb-2 bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent`}>
+                    7
+                  </div>
+                  <p className={`text-sm sm:text-base font-semibold transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                    Days a Week
+                  </p>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className={`w-2 h-2 rounded-full ${isDark ? 'bg-red-400' : 'bg-red-600'}`}></div>
-                  <span className={`text-xs sm:text-sm transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>24/7 Emergency Ward</span>
+
+                <div className={`p-4 sm:p-6 rounded-2xl transition-all duration-300 ${isDark ? 'bg-white/10' : 'bg-white/80'}`}>
+                  <div className={`text-3xl sm:text-4xl font-black mb-2 bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent`}>
+                    365
+                  </div>
+                  <p className={`text-sm sm:text-base font-semibold transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                    Days a Year
+                  </p>
                 </div>
+              </div>
+
+              {/* Call to Action */}
+              <div className="mt-8 sm:mt-10">
+                <a
+                  href="tel:+919434316317"
+                  className="inline-flex items-center gap-2 px-8 sm:px-10 py-4 bg-gradient-to-r from-emerald-600 to-cyan-600 text-white font-bold rounded-full hover:shadow-2xl transition-all duration-300 hover:scale-105 group text-base sm:text-lg"
+                >
+                  <Phone className="w-5 h-5" />
+                  Call Us Anytime
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </a>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ============ MAP SECTION ============ */}
-      <section className={`relative py-12 sm:py-24 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDark ? 'bg-slate-900/50' : 'bg-white'}`}>
-        <div className="max-w-7xl mx-auto">
-          <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black text-center mb-8 sm:mb-16 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-            Find Us
-          </h2>
-          
-          <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.7763251382376!2d88.86705937440442!3d22.662126729684758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ff567ddfd3698b%3A0xb13cbb73a2e6a5e!2sSupreme%20Health%20Care!5e0!3m2!1sen!2sin!4v1763985237009!5m2!1sen!2sin"
-              width="100%" 
-              height="300"
-              style={{ border: 0 }}
-              allowFullScreen="" 
-              loading="lazy"
-              className="w-full sm:h-96 md:h-[450px]"
-            ></iframe>
+
+
+        {/* ============ MAP SECTION ============ */}
+        <section className={`relative py-12 sm:py-24 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDark ? 'bg-slate-900/50' : 'bg-white'}`}>
+          <div className="max-w-7xl mx-auto">
+            <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black text-center mb-8 sm:mb-16 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+              Find Us
+            </h2>
+
+
+            <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.7763251382376!2d88.86705937440442!3d22.662126729684758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ff567ddfd3698b%3A0xb13cbb73a2e6a5e!2sSupreme%20Health%20Care!5e0!3m2!1sen!2sin!4v1763985237009!5m2!1sen!2sin"
+                width="100%"
+                height="300"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                className="w-full sm:h-96 md:h-[450px]"
+              ></iframe>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ============ CTA SECTION ============ */}
-      <section className={`relative py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-r from-emerald-600 to-cyan-600`}>
-        <div className="absolute inset-0">
-          <div className="absolute -top-40 -right-40 w-64 sm:w-96 h-64 sm:h-96 bg-white/10 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-40 -left-40 w-64 sm:w-96 h-64 sm:h-96 bg-white/10 rounded-full blur-3xl"></div>
-        </div>
 
-        <div className="relative max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 sm:mb-8">Ready to Get Quality Healthcare?</h2>
-          <p className="text-base sm:text-lg md:text-xl text-white/90 mb-8 sm:mb-12 px-4">
-            Contact us today and experience expert medical care with compassion
-          </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
-            <a
-              href="tel:+919434316317"
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 bg-white text-emerald-600 font-bold rounded-full hover:shadow-2xl transition-all duration-300 hover:scale-105 group text-base sm:text-lg"
-            >
-              <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
-              Call Now
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href="mailto:info@supremehealthcare.in"
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white/10 transition-all duration-300 text-base sm:text-lg"
-            >
-              <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
-              Email Us
-            </a>
+        {/* ============ CTA SECTION ============ */}
+        <section className={`relative py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-r from-emerald-600 to-cyan-600`}>
+          <div className="absolute inset-0">
+            <div className="absolute -top-40 -right-40 w-64 sm:w-96 h-64 sm:h-96 bg-white/10 rounded-full blur-3xl"></div>
+            <div className="absolute -bottom-40 -left-40 w-64 sm:w-96 h-64 sm:h-96 bg-white/10 rounded-full blur-3xl"></div>
           </div>
-        </div>
-      </section>
-    </div>
+
+
+
+          <div className="relative max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 sm:mb-8">Ready to Get Quality Healthcare?</h2>
+            <p className="text-base sm:text-lg md:text-xl text-white/90 mb-8 sm:mb-12 px-4">
+              Contact us today and experience expert medical care with compassion
+            </p>
+
+
+
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+              <a
+                href="tel:+919434316317"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 bg-white text-emerald-600 font-bold rounded-full hover:shadow-2xl transition-all duration-300 hover:scale-105 group text-base sm:text-lg"
+              >
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
+                Call Now
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a
+                href="mailto:info@supremehealthcare.in"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white/10 transition-all duration-300 text-base sm:text-lg"
+              >
+                <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
+                Email Us
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
     </Layout>
   );
 }
